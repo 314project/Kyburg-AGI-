@@ -499,7 +499,109 @@ Incorporating tensor-based representations of verb morphology into probabilistic
 
 **This framework empowers the next generation of AI researchers to create systems that both “understand” and “explain”—delivering intuition, adaptability, and trustworthiness at the core of artificial general intelligence development.**
 
+## 2.1 Addressing Recent Advances in Probabilistic Programming and World Modeling (2024–2025)
 
+In light of several foundational papers published in 2024–2025, this section presents a direct analysis of their contributions and limitations, and outlines how the integration of tensor-based verb morphology can extend and improve their architectures. The most relevant works are:
+
+---
+
+### 2.1.1 T-CPDL: A Temporal Causal Probabilistic Description Logic for World Modeling [[arXiv:2506.18559]](https://arxiv.org/pdf/2506.18559)
+
+**Summary:**  
+T-CPDL introduces a unified framework combining temporal logic, causal modeling, and probabilistic inference, built on Description Logic foundations. It aims to augment Large Language Models (LLMs) with interpretable, temporally grounded knowledge representation.
+
+**Limitations Identified:**  
+- Relies on structured logic but lacks deep linguistic integration at the event/action level, especially in morphologically rich languages.
+- Semantic granularity of world events is limited when mapped from surface-level predicates.
+
+**Improvement Pathway:**  
+- Integrating tensor-based verb morphology provides fine-grained event decomposition and temporal/causal role encoding, improving both the reasoning layer and its interface with LLMs.
+- Practical integration involves extending the logic foundation to accept tensor-encoded verb structures as primitive event types, enabling more nuanced simulation and inference.
+
+---
+
+### 2.1.2 Suspension Analysis and Selective Continuation-Passing Style for Universal Probabilistic Programming Languages (D. Lundén et al., ESOP 2024) [[KTH Publication]](https://www.kth.se/profile/dbro/publications)
+
+**Summary:**  
+Presents advanced language features for universal PPLs, focusing on suspension analysis and continuation-passing style to enhance expressivity and execution efficiency.
+
+**Limitations Identified:**  
+- The paper advances program control and execution but does not address semantic fidelity at the predicate or action representation level.
+- Handling of actions and events often remains coarse, limiting downstream inference quality.
+
+**Improvement Pathway:**  
+- By encoding verb morphology as tensors, action/event representations become composable and context-aware, improving both language-level expressivity and probabilistic reasoning.
+- Developers can adapt the program suspension logic to operate over tensor-encoded events, enabling finer control over simulation and inference pathways.
+
+---
+
+### 2.1.3 COBRA-PPM: A Causal Bayesian Reasoning Architecture Using Probabilistic Programming [[arXiv:2403.14488v3]](https://arxiv.org/html/2403.14488v3)
+
+**Summary:**  
+COBRA-PPM combines decision-making causal models, probabilistic programming, and data-driven reasoning to support robust manipulation under uncertainty.
+
+**Limitations Identified:**  
+- Causal models are powerful, but the event/action primitives lack deep linguistic detail, impacting uncertainty quantification and cross-linguistic generalization.
+- Reference class construction and interval probability calculations are limited by surface-level event encoding.
+
+**Improvement Pathway:**  
+- Embedding tensor-based verb morphology within the causal model architecture enhances the semantic richness of events, leading to more precise uncertainty quantification and better interval probability management.
+- The Bayesian reasoning layer can leverage the tensor structure for more adaptive, context-sensitive inference.
+
+---
+
+### 2.1.4 Probabilistic Modeling and Supervised Machine Learning Technique in ... [[Springer 2025]](https://link.springer.com/article/10.1007/s41096-025-00243-x)
+
+**Summary:**  
+Proposes a flexible probabilistic model using a three-parameter distribution for unit interval data, with computationally tractable formulas and simulation studies.
+
+**Limitations Identified:**  
+- Focuses on numerical modeling and distribution fitting, with limited attention to the semantic structure of modeled phenomena, especially for linguistic or event-based data.
+- Event/action semantics are not explicitly modeled in the probabilistic structure.
+
+**Improvement Pathway:**  
+- By using tensor-based verb morphology, developers can encode complex, multi-dimensional semantic features into probabilistic models, improving the representation of categorical and temporal phenomena.
+- The approach supports richer simulation studies, especially in domains where linguistic data is central.
+
+---
+
+## 2.2 Integration Guidance for Developers
+
+For each architecture, developers can:
+
+- **Extend event/action representations** to include tensor-encoded verb morphology, increasing semantic fidelity.
+- **Modify probabilistic and causal reasoning layers** to utilize tensor axes for context, agent, temporal, and causal features.
+- **Benchmark improvements** on shared datasets, focusing on interval sharpness, explainability, and cross-linguistic generalization.
+- **Migrate legacy codebases** by adapting morphological parsers and tensor encoders as preprocessing and event construction modules.
+
+**Example Workflow** (for any of the above models):
+
+```python
+# Pseudocode for integrating tensor-based verb morphology
+from morphological_parser import parse_verb
+import numpy as np
+
+verb = "הולכים"  # Hebrew for "they walk"
+features = parse_verb(verb)
+tensor = np.zeros([num_roots, num_binyans, num_tenses, ...])
+tensor[features['root'], features['binyan'], features['tense'], ...] = 1
+
+# Pass tensor to probabilistic world model
+model.process_event(tensor)
+```
+
+---
+
+## 2.3 Experimental Proposal
+
+- Simulate world modeling tasks using both the original and tensor-augmented architectures.
+- Assess improvements in semantic precision, reasoning depth, uncertainty quantification, and explainability.
+- Report results using benchmarks and metrics from the referenced papers for direct comparability.
+
+---
+
+**In summary:**  
+By addressing the latest advances in PPM, this dissertation demonstrates how tensor-based verb morphology can significantly enhance world modeling architectures—providing a practical roadmap for developers to achieve greater semantic depth, adaptability, and transparency in their systems.
 ---
 
 You can now:
